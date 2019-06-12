@@ -1,5 +1,27 @@
+const express = require('express');
 // Import the Google Cloud client library
 const { BigQuery } = require('@google-cloud/bigquery');
+const app = express();
+
+app.get('/', (req, res) => {
+  res
+    .status(200)
+    .send('Hello, world!')
+    .end();
+});
+
+// Start the server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  console.log('Press Ctrl+C to quit.');
+  queryStackOverflow();
+});
+
+
+
+
+
 
 async function queryStackOverflow() {
   // Queries a public Stack Overflow dataset.
@@ -43,4 +65,3 @@ WHERE
     console.log(`url: ${url}, ${viewCount} views`);
   });
 }
-queryStackOverflow();

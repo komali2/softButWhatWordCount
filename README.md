@@ -20,3 +20,21 @@ For example:
 ```
 export GOOGLE_APPLICATION_CREDENTIALS="/home/caleb/Documents/personal/softButWhatWordCount/keys.json"
 ```
+
+### Set Up Node and NPM
+* Ensure you have node version at least 10 installed.
+* Ensure NPM is installed.
+
+### Install Frontend Packages
+
+```
+npm install
+```
+
+## Deploying
+* Ensure gcloud CLI is installed: https://cloud.google.com/sdk/docs/#install_the_latest_cloud_tools_version_cloudsdk_current_version
+* Deploy the app via the CLI:
+
+```
+gcloud app deploy
+```
