@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Caleb Jay Rogers">
+    <meta name="description" content="Input a word, get the count across all Shakespeare works">
+    <meta name="keywords" content="Caleb Rogers, Caleb Jay, komali_2, frontend, programming, bigquery, shakespeare">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="styles.css" rel="stylesheet">
+    <script src="app.js"></script>
+    <title>Soft But What Word Count?</title>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>
+            Soft, But What Word Count?
+        </h1>
+        <h3>
+          <small>
+            Updated: <time datetime="2019-06-12">Jun, 2019</time>
+          </small>
+        </h3>
+      </header>
+      <form
+          class="word-query"
+          autocomplete="off"
+          name="word-query"
+          id="word-query-form"
+      >
+          <label for="query-word">
+              Search all Shakespeare texts for the following word:
+          </label>
+          <input
+              type="text"
+              name="query-word"
+              autocomplete="off"
+              autofocus="true"
+              required="true"
+              tabindex="0"
+          >
+          <button type="submit">
+              Search
+          </button>
+      </form>
+      <div class="output">
+          <table id="output-table">
+              <thead>
+                  <tr>
+                      <td>
+                          Word
+                      </td>
+                      <td>
+                          Count
+                      </td>
+                      <td>
+                          Appears In
+                      </td>
+                </tr>
+              </thead>
+          </table>
+      </div>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    <a href="https://github.com/komali2">Github</a>
+                </li>
+                <li>
+                    <a href="https://stackoverflow.com/story/calebjay">Stack Overflow</a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/calebjrogers/">Linkedin</a>
+                </li>
+                <li>
+                    <a href="http://blog.calebjay.com/">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+  </body>
+</html>

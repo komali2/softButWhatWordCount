@@ -3,6 +3,7 @@ const express = require('express');
 const { BigQuery } = require('@google-cloud/bigquery');
 const app = express();
 
+app.use(express.static('frontend'));
 app.get('/', (req, res) => {
   res
     .status(200)

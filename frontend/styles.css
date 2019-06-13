@@ -1,0 +1,85 @@
+body {
+    background-color: #f4f4f4;
+    font-family: helvetica neue,helvetica,sans-serif;
+}
+main {
+    max-width: 38rem;
+    padding: 1.5rem;
+    margin: auto;
+}
+body {
+  background-color: #f4f4f4;
+  font-family: helvetica neue,helvetica,sans-serif;
+}
+header {
+  font-size: 2em;
+}
+
+h1 small, h2 small, h3 small, h4 small {
+  display: block;
+}
+
+h3 small {
+  font-weight: normal;
+}
+
+section {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+section small {
+  font-weight: normal
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 5px;
+}
+form label {
+    margin: 5px;
+}
+form input {
+    margin: 5px;
+    width: 20em;
+}
+form button {
+    margin: 5px;
+}
+div .output {
+    height: 5em;
+}
+footer ul {
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0px;
+}
+footer ul li {
+    display: inline;
+}
+
+@media only screen {
+
+ } /* Define mobile styles */
+
+@media only screen and (max-width: 40em) { } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+@media only screen and (min-width: 40.063em) {
+ } /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) { } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+@media only screen and (min-width: 64.063em) {
+ } /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+@media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+@media only screen and (min-width: 120.063em) { } /* min-width 1921px, xxlarge screens */
