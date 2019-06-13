@@ -11,20 +11,24 @@ app.get('/', (req, res) => {
     .end();
 });
 
+app.get('/wordcount', async (req, res) => {
+  try {
+    const data = await queryStackOverflow(req.query.word);
+    res.send(JSON.stringify(data));
+  } catch (e) {
+    res.status(404).send(e.message);
+  }
+});
+
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
-  queryStackOverflow();
 });
 
 
-
-
-
-
-async function queryStackOverflow() {
+async function queryStackOverflow(word_query) {
   // Queries a public Stack Overflow dataset.
 
   // Create a client
@@ -45,24 +49,34 @@ FROM (
     lowered_word
   ORDER BY
     total_word_count DESC
-  LIMIT
-    1000 ) w
+    ) w
 WHERE
-  lowered_word = 'thou';
+  lowered_word = @word_query;
 `;
   const options = {
     query: sqlQuery,
     // Location must match that of the dataset(s) referenced in the query.
     location: 'US',
+    params: {
+      word_query,
+    },
   };
 
   // Run the query
   const [rows] = await bigqueryClient.query(options);
 
   console.log('Query Results:');
-  rows.forEach(row => {
-    const url = row['lowered_word'];
-    const viewCount = row['total_word_count'];
-    console.log(`url: ${url}, ${viewCount} views`);
-  });
+  if (rows.length) {
+    const output = {
+      word: '',
+      count: '',
+      found_in: '',
+    };
+    output.word = rows[0]['lowered_word'];
+    output.count = rows[0]['total_word_count'];
+    output.found_in = rows[0]['found_in'];
+    return output;
+  } else {
+    throw new Error('No results found.');
+  }
 }
