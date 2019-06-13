@@ -21,7 +21,7 @@ function makeNewRow(tableID, word, count, found_in) {
 function makeQuery(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
-  sendQuery(formData.get('query-word'));
+  sendQuery(formData.get('query-word').toLowerCase());
   e.target[0].value = '';
 }
 function sendQuery(query_word) {
