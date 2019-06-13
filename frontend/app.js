@@ -22,7 +22,6 @@ function makeQuery(e) {
   e.preventDefault();
   const formData = new FormData(e.target);
   sendQuery(formData.get('query-word'));
-  console.log('Query for this word:', formData.get('query-word'));
   e.target[0].value = '';
 }
 function sendQuery(query_word) {
@@ -32,6 +31,16 @@ function sendQuery(query_word) {
   xhr.send(null);
 }
 function handleResponse() {
-  const res = JSON.parse(this.response);
-  makeNewRow('output-table', res.word, res.count, res.found_in);
+  if (this.response[0] === 'N' ) {
+    handleError(this.response);
+  } else {
+    const res = JSON.parse(this.response);
+    makeNewRow('output-table-body', res.word, res.count, res.found_in.split(',').join(' '));
+  }
+}
+function handleError(error) {
+  const textNode = document.createTextNode(error);
+  const p = document.createElement('p');
+  p.append(textNode);
+  document.getElementById('error').append(p);
 }

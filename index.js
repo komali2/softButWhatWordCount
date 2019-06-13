@@ -65,7 +65,6 @@ WHERE
   // Run the query
   const [rows] = await bigqueryClient.query(options);
 
-  console.log('Query Results:');
   if (rows.length) {
     const output = {
       word: '',
@@ -77,6 +76,6 @@ WHERE
     output.found_in = rows[0]['found_in'];
     return output;
   } else {
-    throw new Error('No results found.');
+    throw new Error(`No results found for ${word_query}`);
   }
 }
