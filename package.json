@@ -24,6 +24,6 @@
   "homepage": "https://github.com/komali2/softButWhatWordCount#readme",
   "dependencies": {
     "@google-cloud/bigquery": "^4.1.2",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
